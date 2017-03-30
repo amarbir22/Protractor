@@ -1,6 +1,7 @@
 /* calcHome.pageObject.js */
 
 var CalculatorPageModel = function () {
+    this.baseUrl = 'http://juliemr.github.io/protractor-demo/';
 
     this.Operator = {
         ADD: "+",
@@ -8,6 +9,11 @@ var CalculatorPageModel = function () {
         DIVIDE: "/",
         MULTIPLY: "*",
         MODULUS: "%"
+    };
+
+    this.loadPage = function (url) {
+        url = url || this.baseUrl;
+        browser.get(url);
     };
 
     this.firstInput = element(by.model('first'));

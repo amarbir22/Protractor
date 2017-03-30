@@ -1,20 +1,22 @@
 /* SuperCalcSpec.js */
 var CalculatorPageModel = require('../pages/pageObject.js');
+var CalculatorDataProvider = require('../testData/testData.js');
 
 describe('Test the add functionality', function () {
-    var tt = new CalculatorPageModel();
+    var calcPage = new CalculatorPageModel();
+    var calcData = new CalculatorDataProvider();
+
     beforeEach(function () {
-        browser.get('http://juliemr.github.io/protractor-demo/');
+        calcPage.loadPage(); //loads the base url
     });
 
     it('To add two positive integers and verify result', function () {
-        var first = 20, second = 10, expectedSum = first + second;
-        tt.fillEquation(first, second, tt.Operator.ADD);
-        tt.goBtn.click();
+        calcPage.fillEquation(calcData.addPosNumber.firstValue,
+            calcData.addPosNumber.secondValue, calcPage.Operator.ADD);
+        calcPage.goBtn.click();
 
-        tt.result.getText().then(function (value) {
-            expect(expectedSum).toBe(parseInt(value));
-           // browser.sleep(10000);
+        calcPage.result.getText().then(function (value) {
+            expect(calcData.addPosNumber.expectedValue).toBe(parseInt(value));
         });
     });
 });

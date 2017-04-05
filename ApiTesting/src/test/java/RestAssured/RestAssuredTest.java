@@ -3,7 +3,7 @@ package RestAssured;
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.response.ResponseBody;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -20,5 +20,10 @@ public class RestAssuredTest {
         Response res = RestAssured.when().get(uri);
         ResponseBody ff = res.body();
         System.out.println("body " + ff.prettyPrint());
+    }
+
+    @Test
+    public void testMessages() {
+
     }
 }

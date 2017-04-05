@@ -21,6 +21,11 @@ exports.config = {
         'browserName': 'chrome'
     },
 
+    onPrepare: function(){
+        browser.driver.manage().window().maximize();
+        browser.manage().timeouts().implicitlyWait(5000);
+    },
+
     /**
      * This should point to your running app instance, for relative path resolution in tests.
      */

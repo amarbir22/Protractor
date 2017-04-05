@@ -15,7 +15,6 @@ describe('Test the add functionality', function () {
             calcData.addPosNumber.secondValue, calcPage.Operator.ADD);
 
         calcPage.goBtn.click();
-        browser.ignoreSynchronization = true;
 
         calcPage.result.getText().then(function (value) {
             expect(parseInt(value)).toBe(calcData.addPosNumber.expectedValue);
